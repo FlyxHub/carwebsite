@@ -1,6 +1,6 @@
 node('AppServer') {
     stage('Cloning Git') {
-        // This just doesn't do anything lol
+        sh 'git clone https://github.com/FlyxHub/carwebsite.git'
     }
 
     stage('Build and Tag') {
