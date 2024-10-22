@@ -1,20 +1,19 @@
-node('AppServer')
+node('AppServer') {
+    def app
 
-def app
+    stage('Cloning Git') {
+    }
 
-stage('Cloning Git') {
+    stage('Build and Tag') {
+        app.docker.build('flyxdocker/car_web')
+    }
 
-}
+    stage('Push to DockerHub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds')
+    }
 
-stage('Build and Tag') {
-    app.docker.build('flyxdocker/car_web')
-}
-
-stage('Push to DockerHub'){
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds')
-}
-
-stage('Deploy') {
-    sh "docker-compose down"
-    sh "docker-compose up -d"
+    stage('Deploy') {
+        sh 'docker-compose down'
+        sh 'docker-compose up -d'
+    }
 }
