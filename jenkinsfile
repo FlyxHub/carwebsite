@@ -9,7 +9,7 @@ node('AppServer') {
     }
 
     stage('Push to DockerHub') {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds')
+        app.docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds')
     }
 
     stage('Deploy') {
