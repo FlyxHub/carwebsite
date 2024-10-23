@@ -18,7 +18,8 @@ node('AppServer') {
     }
 
     stage('Deploy') {
-        // First make sure there's no container already running, then run the container with the config from docker-compose.yml
+        /* First make sure there's no container already running,
+        then run the container with the config from docker-compose.yml */
         sh 'docker-compose down'
         sh 'docker-compose up -d'
     }
