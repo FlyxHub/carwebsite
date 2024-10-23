@@ -1,6 +1,6 @@
 node('AppServer') {
     stage('Cloning Git') {
-        checkout scm 
+        checkout scm
     }
 
     stage('Build and Tag') {
