@@ -1,7 +1,6 @@
 node('AppServer') {
     stage('Cloning Git') {
-        sh 'git clone https://github.com/FlyxHub/carwebsite.git'
-        sh 'cd carwebsite'
+        checkout scm 
     }
 
     stage('Build and Tag') {
