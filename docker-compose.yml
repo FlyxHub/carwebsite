@@ -1,6 +1,7 @@
 version: '2.4'
 services:
  apache:
+   container_name: 'car-website'
    image: 'flyxdocker/car_web'
    ports:
    - '80:80'
